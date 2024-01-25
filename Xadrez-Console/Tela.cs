@@ -100,11 +100,28 @@ namespace Xadrez_Console
         public static PosicaoXadrez lerPosicaoXadrez()
         {
             string s = Console.ReadLine();
-            char coluna = s[0];
-            int linha = int.Parse(s[1] + "");
+            if (string.IsNullOrEmpty(s) || s.Length < 2)
+            {
+                throw new TabuleiroException("Erro: A entrada deve ter pelo menos dois caracteres.");
+            }
+
+            char coluna = char.ToLower(s[0]);
+            if (!char.IsLetter(coluna) || coluna < 'a' || coluna > 'h')
+            {
+                throw new TabuleiroException("Erro: O primeiro caractere deve ser uma letra entre 'a' e 'h'.");
+            }
+
+            if (!int.TryParse(s[1].ToString(), out int linha))
+            {
+                throw new TabuleiroException("Erro: O segundo caractere deve ser um número.");
+            }
+
+            if (linha < 1 || linha > 8)
+            {
+                throw new TabuleiroException("Erro: O número da linha deve estar entre 1 e 8");
+            }
 
             return new PosicaoXadrez(coluna, linha);
-
         }
 
         public static void imprimirPeca(Peca peca)
