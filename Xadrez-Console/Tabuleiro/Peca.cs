@@ -28,7 +28,7 @@ namespace tabuleiro
         }
         public void decrementarQtdMovimentos()
         {
-            qtdMovimentos --;
+            qtdMovimentos--;
         }
 
 
@@ -39,7 +39,7 @@ namespace tabuleiro
             {
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (mat[i,j] == true)
+                    if (mat[i, j] == true)
                     {
                         return true;
                     }
@@ -54,6 +54,6 @@ namespace tabuleiro
         }
 
         public abstract bool[,] movimentosPossiveis();
-       
+
     }
 }

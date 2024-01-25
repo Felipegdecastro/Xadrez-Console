@@ -33,14 +33,14 @@ namespace xadrez
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-           
+
             pos.definirValores(posicao.Linha - 2, posicao.Coluna - 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
             }
 
-            
+
             pos.definirValores(posicao.Linha - 2, posicao.Coluna + 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
